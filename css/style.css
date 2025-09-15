@@ -1,0 +1,1334 @@
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body {
+    /* overflow: hidden; */
+    margin: 0;
+    padding: 0;
+    background-color: #4e4848;
+}
+
+canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(32, 29, 29);
+    padding: 2.3rem 1rem;
+}
+
+nav img {
+    height: 4rem;
+    width: 5rem;
+    color: aliceblue;
+}
+
+nav .nav-button {
+    border: 3px solid #b1b1b1;
+    background-color: #cdcdcd;
+    color: rgb(15, 15, 15);
+    font-weight: 600;
+    border-radius: 100px;
+    padding: 0.5rem 1.2rem;
+    margin-right: 10px;
+}
+
+nav .nav-button:hover {
+    border: 3px solid #fe9a0e;
+    background-color: #fe9a0e;
+    color: black;
+}
+
+.main {
+    /* height: 100vh; */
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 20px;
+}
+
+.same-box {
+    background-color: rgb(43, 39, 39);
+    width: 30rem;
+    min-height: 45rem;
+    height: max-content;
+    border-radius: 15px;
+    margin-bottom: 50px;
+
+    
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-area {
+    display: flex;
+    align-items: center;
+
+    
+    background-color: black;
+    border: 5px solid black;
+
+    
+    
+    bottom: 0;
+    position: absolute;
+
+    width: 100%;
+
+}
+
+i {
+    background-color: transparent;
+}
+
+.chat-area i {
+    background-color: orange;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    margin-right: 10px;
+
+    
+}
+
+.chat-area i:hover {
+    opacity: 0.8;
+}
+
+.chat-area input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(27, 27, 27);
+    border: 2px solid rgb(40, 40, 40);
+    color: white;
+}
+
+.face-text {
+    color: black;
+    background-color: orange;
+    padding: 0.8rem;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    /* margin-top: 7px; */
+    cursor: pointer;
+}
+
+.face-cam {
+    /* height: 15rem; */
+    background-color: rgb(100, 95, 95);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.face-cam video,img{
+    width: 100%;
+}
+
+.face-ai {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(35, 32, 32);
+    border-radius: 10px;
+    margin: 0.7rem;
+}
+
+.audio-files {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(35, 32, 32);
+    border-radius: 10px;
+    margin: 0.7rem;
+    height: max-content;
+}
+
+.more-audios p {
+    color: black;
+    background-color: orange;
+    padding: 0.6rem;
+    border-radius: 100px;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 7px;
+}
+
+.more-audios {
+    width: 100%;
+    cursor: pointer;
+}
+
+.more-audios:hover {
+    opacity: 0.8;
+}
+
+/* update 2 */
+/* code to flip video but the canvas remains the same */
+/* video{
+    transform: scaleX(-1);
+    -webkit-transform: scaleX(-1); 
+    -moz-transform: scaleX(-1); 
+} */
+.more-audios {
+    width: 100%;
+    cursor: pointer;
+}
+
+.more-audios:hover {
+    opacity: 0.8;
+}
+
+.ai-space{
+    overflow-y: auto;
+}
+
+.section-main {
+    max-height: 41.3rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.section-main::-webkit-scrollbar {
+    display: none;
+}
+
+.ai-space::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-of-user {
+    /* you can turn off this also */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.3rem 1rem !important;
+}
+
+.chat-of-bot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .chat-of-user p {
+  } */
+
+.align-end {
+    align-self: flex-end;
+}
+
+.chat-property-same {
+    height: max-content;
+    width: 75%;
+    background-color: rgb(19, 19, 19);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+.chat-property-same p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 10px;
+    color: white;
+}
+
+.chat-property-same-ai {
+    height: 90px;
+    width: 60%;
+    background-color: yellow;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    margin: 0.5rem;
+}
+
+.chat-property-same-ai p {
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.7;
+    font-size: 1rem;
+}
+
+.anchor-ai a {
+    text-decoration: none;
+    color: black;
+    background-color: orange;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0.6rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 60%;
+    text-align: center;
+    margin-top: -2px;
+}
+
+.anchor-ai {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+a{
+    
+    text-decoration: none !important;
+}
+
+.video-ai {
+    display: flex;
+    margin: 5px 15px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-color: #1a1a1a;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.video-ai:hover {
+    background-color: #232323;
+}
+
+.video-thumbnail img {
+    height: 7.3rem;
+    width: 12rem;
+    border-radius: 10px;
+}
+
+.video-info {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
+
+.audios-ai {
+    padding: 1rem;
+}
+
+.jokes-stories-ai p {
+    color: white;
+    font-weight: 300;
+    font-size: 1rem;
+
+}
+
+.jokes-stories-ai p b{
+    font-weight: 600;
+    font-size: 1.1rem;
+
+}
+
+.jokes-stories-ai i {
+    font-size: 1rem;
+    color: white;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 3px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.jokes-stories-ai i:hover {
+    opacity: 0.7;
+}
+
+.jokes-stories-ai {
+    margin: 0.3rem 1rem;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* update 3  */
+
+@media (max-width: 1000px) {
+    .main {
+        flex-direction: column;
+    }
+}
+
+/* you can change this audio color or background  */
+audio{
+    min-width: 400px;
+    width: 100%;
+}
+audio::-webkit-media-controls-panel {
+    background-color: #bdbdbd;
+}
+
+audio::-webkit-media-controls-play-button {
+    background-color: #848484;
+    border-radius: 50%;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    color: black;
+}
+
+audio::-webkit-media-controls-timeline {
+    border-radius: 40px;
+    background-color: #848484;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    background-color: #848484;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+audio::-webkit-media-controls-mute-button {
+    background-color: #848484;
+    border-radius: 50%;
+}
+
+
+/* My Extra Classes */
+.readIt{
+    cursor: pointer;
+    padding: 5px;
+}
+.none{
+    display: none !important;
+}
+
+.chat-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.voiceChatUI{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    min-height: 40rem;
+    height: 100%;
+    background-color: #232020;
+    border-radius: 10px;
+
+    margin: auto;
+}
+
+.aiChatSection, .userChatSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100% !important;
+    width: 100%;
+    flex-direction: column;
+    padding: 30px 0;
+}
+
+.aiChatSection .aiSoundIcon{
+    font-size: 70px;
+}
+
+
+.aiChatSection i{
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.divider{
+    height: 2px;
+    background-color: #454545;
+    width: 90%;
+}
+
+.userVoiceChatIconContainer{
+    background-color: #454545;
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+    border-radius: 50px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.userQueryText{
+    font-size: 20px;
+    color:#dedede;
+    font-weight: 500;
+    margin: 0 15px;
+    text-align: center;
+}
+
+.voiceChatUserActionContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .voiceChatUserActionContainer .userVoiceChatIconContainer{
+    margin: 15px 5px;
+  }
+
+  .voiceChatUserActionContainer .userVoiceChatIconContainer.noMain{
+    margin: 15px 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .voiceChatUserActionContainer .userVoiceChatIconContainer i{
+    font-size: 15px;
+    color: #dedede;
+  }
+
+  .voiceChatUserActionContainer .userVoiceChatIconContainer .voiceChatIcon{
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.topChatHeader{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 90%;
+    padding: 10px 0 0 0;
+    margin-top: 10px;
+    background-color: transparent;
+    position: absolute;
+}
+
+.toggleContainer{
+    display: flex; justify-content: center; align-items: center;
+    background-color: #454545;
+    border-radius: 20px;
+    padding: 5px 0;
+
+    box-shadow: 0 0 10px 10px #00000048;
+}
+
+.toggleContainer i{
+    font-size: 15px;
+    margin: 0 10px;
+    color: #c5c5c5;
+}
+
+
+.toggle-button {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ccc;
+    cursor: pointer !important;
+  }
+  
+  .toggle-button input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .toggle-button .toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.2s;
+    background-color: #fe9a0e;
+  }
+  
+  .toggle-button input[type="checkbox"]:checked + .toggle-label {
+    transform: translateX(30px);
+  }
+
+.chatOptionContainer{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.getVideosBtn{
+    padding: 7px 20px;
+    background-color: #131313;
+    color: #c5c5c5;
+    width: max-content;
+    border-radius: 10px;
+    margin-left: 10px;
+
+    cursor: pointer;
+}
+
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.loadingContainer h1 {
+    font-size: 1.8rem;
+}
+
+.mainContainer{
+    max-width: 600px;
+    width:100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    margin:  auto;
+    background-color: #2b2727;
+}
+
+.mainContainerTherapy .dailyTherapyContent{
+    max-width: 800px;
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #ffffff;
+
+    background-color: #171717;
+}
+
+.mainContainerTherapy{
+    max-width: 1200px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin:  auto;
+}
+
+.mainContainerTherapy .mainContainer .topHeader, .mainContainer .topHeader{
+    max-width: 90%;
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131313;
+
+    padding: 10px 0;
+}
+
+.mainContainerTherapy .topHeader{
+    max-width: 90%;
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0 10px 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #131313;
+    overflow-x: scroll;
+
+
+    padding: 10px 10px;
+}
+
+.mainContainerTherapy .topHeader::-webkit-scrollbar{
+    height: 6px;
+}
+
+.mainContainerTherapy .topHeader::-webkit-scrollbar-track{
+    background-color: #2b2727 ;
+}
+
+.mainContainerTherapy .topHeader::-webkit-scrollbar-thumb{
+    background-color: #757575;
+    border-radius: 5px;
+    width: auto;
+}
+
+.mainContainerTherapy .topHeader .roundDailyButton{
+    padding:20px;
+    border-radius: 100%;
+    background-color: #e8e8e8;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+}
+
+.mainContainerTherapy .topHeader .roundDailyButton.locked{
+    background-color: #2f2f2f;
+    color: #989898;
+}
+
+.powerContainedText{
+    display: flex;
+    align-items: start;
+}
+
+.bottonRattingBar{
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    border-top: 2px solid #2f2f2f;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 15px 0;
+}
+
+.bottonRattingBar i{
+    cursor: pointer;
+}
+
+.powerText{
+    font-size: 10px;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+.mainContainer .topHeader .journalTitle{
+    color: #ffffff;
+    margin-left: 15px;
+    font-weight: 800 !important;
+    font-size: 20px;
+    display: flex;
+}
+
+.mainContainer .topHeader .journalTitle .goBackBtn{
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.mainContainer .topHeader .therapyTitle{
+    color: #ffffff;
+    margin-left: 15px;
+    font-weight: 800 !important;
+    font-size: 20px;
+    display: flex;
+}
+
+.mainContainer .topHeader .therapyTitle .goBackBtn{
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.mainContainer .topHeader .addNewContainer .btnAddNewJournal{
+    font-size: 17px;
+
+    padding: 7px 20px;
+    background-color: #fe9a0e;
+    border-radius: 100px;
+    cursor: pointer;
+
+    border: 2px solid #cb7701;
+    margin: 0 10px;
+}
+
+.mainContainer .topHeader .addNewContainer .btnAddNewJournal p{
+    font-weight: 500;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+}
+
+.mainContainer .topHeader .addNewContainer .btnAddNewTherapy{
+    font-size: 17px;
+
+    padding: 7px 20px;
+    background-color: #fe9a0e;
+    border-radius: 100px;
+    cursor: pointer;
+
+    border: 2px solid #cb7701;
+    margin: 0 10px;
+}
+
+.mainContainer .topHeader .addNewContainer .btnAddNewTherapy p{
+    font-weight: 500;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+}
+
+.mainContainer .oldJournalContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 90%;
+    background-color: #131313;
+    border-radius: 10px;
+}
+
+.mainContainer .oldJournalContainer .oldElementContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: #ffffff;
+    background-color: #232323;
+    border: 3px solid #232323;
+
+    max-width: 95%;
+    width: 100%;
+    border-radius: 14px;
+    margin: 10px 0;
+}
+
+.mainContainer .oldJournalContainer .oldElementContainer .oldElementContainerHeader{
+    background-color: #0000003b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    padding: 10px 10px;
+}
+
+.mainContainer .oldJournalContainer .oldElementContainer .oldElementContainerHeader .oldElementHeaderBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer .oldJournalContainer .oldElementContainer .oldElementContainerHeader .oldElementHeaderBtnContainer .elementHeaderBtn{
+    background-color: #2b2b2b;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff !important;
+
+    border-radius: 100%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.mainContainer .oldJournalContainer .oldElementContainer .oldElementContentContainer{
+    margin: 10px 15px;
+}
+
+.mainContainer .addNewJournal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    width: 100%;
+    background-color: #131313;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.mainContainer .addNewJournal .inputFields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.mainContainer .addNewJournal .inputFields input,.mainContainer .addNewJournal .inputFields .journalContent{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    font-size: 15px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.journalImageInInput{
+    max-width: 98%;
+    height: auto;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.mainContainer .addNewJournal .inputFields input,.mainContainer .addNewJournal .inputFields .therapyContent{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    font-size: 15px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContainer .addNewJournal .inputFields .therapyContent .therapyImageInInput{
+    max-width: 98%;
+    height: auto;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.mainContainer .addNewJournal .inputFields input,.mainContainer .addNewJournal .inputFields textarea{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+}
+
+.mainContainer .addNewJournal .inputFields input{
+    border-bottom: 2px solid #131313;
+    border-radius: 10px 10px 0 0;
+}
+
+.mainContainer .addNewJournal .inputFields textarea{
+    border-radius: 0 0 10px 10px;
+}
+
+.mainContainer .addNewJournal .bottomAction{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131313;
+}
+
+.mainContainer .addNewJournal .bottomAction .optionContainer{
+    color: #ffffff;
+    font-size: 20px !important;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.mainContainer .addNewJournal .bottomAction .optionContainer i{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.mainContainer .addNewJournal .bottomAction .optionContainer .themeColorContainer{
+    margin-left: 5px;
+    height: 24px;
+    display: flex;
+}
+
+.mainContainer .addNewJournal .bottomAction .optionContainer .themeColorContainer .color{
+    height: 100%;
+    width: 24px;
+    margin-right: 7px;
+    border-radius: 100%;
+    background-color: red;
+    cursor: pointer;
+}
+
+/* For therapy but Journal Styling */
+
+
+.mainContainer .oldTherapyContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 90%;
+    width:100%;
+    background-color: #131313;
+    border-radius: 10px;
+}
+
+.mainContainer .oldTherapyContainer .oldElementContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: #ffffff;
+    background-color: #232323;
+    border: 3px solid #232323;
+
+    cursor: pointer;
+
+    max-width: 95%;
+    width: 100%;
+    border-radius: 14px;
+    margin: 10px 0;
+}
+
+.mainContainer .oldTherapyContainer .oldElementContainer .oldElementContainerHeader{
+    background-color: #0000003b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    padding: 10px 10px;
+}
+
+.mainContainer .oldTherapyContainer .oldElementContainer .oldElementContainerHeader .oldElementHeaderBtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainContainer .oldTherapyContainer .oldElementContainer .oldElementContainerHeader .oldElementHeaderBtnContainer .elementHeaderBtn{
+    background-color: #2b2b2b;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff !important;
+
+    border-radius: 100%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.mainContainer .oldTherapyContainer .oldElementContainer .oldElementContentContainer{
+    margin: 10px 15px;
+}
+
+.mainContainer .addNewTherapy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    width: 100%;
+    background-color: #131313;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.mainContainer .addNewTherapy .inputFields{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.mainContainer .addNewTherapy .inputFields input,.mainContainer .addNewTherapy .inputFields .journalContent{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    font-size: 15px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContainer .addNewTherapy .inputFields .journalContent .journalImageInInput{
+    max-width: 98%;
+    height: auto;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.mainContainer .addNewTherapy .inputFields input,.mainContainer .addNewTherapy .inputFields .therapyContent{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    font-size: 15px;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContainer .addNewTherapy .inputFields .therapyContent .therapyImageInInput{
+    max-width: 98%;
+    height: auto;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.mainContainer .addNewTherapy .inputFields input,.mainContainer .addNewTherapy .inputFields textarea{
+    width: 100% !important;
+    outline: none;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+}
+
+.mainContainer .addNewTherapy .inputFields input{
+    border-bottom: 2px solid #131313;
+    border-radius: 10px 10px 0 0;
+}
+
+.mainContainer .addNewTherapy .inputFields textarea{
+    border-radius: 0 0 10px 10px;
+}
+
+.mainContainer .addNewTherapy .bottomAction{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #131313;
+}
+
+.mainContainer .addNewTherapy .bottomAction .optionContainer{
+    color: #ffffff;
+    font-size: 20px !important;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.mainContainer .addNewTherapy .bottomAction .optionContainer i{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.mainContainer .addNewTherapy .bottomAction .optionContainer .themeColorContainer{
+    margin-left: 5px;
+    height: 24px;
+    display: flex;
+}
+
+.mainContainer .addNewTherapy .bottomAction .optionContainer .themeColorContainer .color{
+    height: 100%;
+    width: 24px;
+    margin-right: 7px;
+    border-radius: 100%;
+    background-color: red;
+    cursor: pointer;
+}
+
+*[data-bgcolor="pink"]{
+    background-color: #ffd2d9 !important;
+    color: #000000 !important;
+}
+
+*[data-bgcolor="green"]{
+    background-color: #81ff81 !important;
+    color: #000000 !important;
+}
+
+*[data-bgcolor="white"]{
+    background-color: white !important;
+    color: #000000 !important;
+}
+
+*[data-bgcolor="yellow"]{
+    background-color: #f5fc6f !important;
+    color: #000000 !important;
+}
+
+.mainContainer .addNewJournal .bottomAction .btnSubmit{
+    font-size: 17px;
+
+    padding: 7px 20px;
+    background-color: #fe9a0e;
+    border-radius: 100px;
+    cursor: pointer;
+
+    border: 2px solid #cb7701;
+    margin: 0 20px;
+}
+
+
+
+.mainContainer .addNewTherapy .bottomAction .btnSubmit{
+    font-size: 17px;
+
+    padding: 7px 20px;
+    background-color: #fe9a0e;
+    border-radius: 100px;
+    cursor: pointer;
+
+    border: 2px solid #cb7701;
+    margin: 0 20px;
+}
+
+
+
+.videoContainer{
+    width: 70%;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.videoContainer .playerControlBlocker{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.statics{
+    min-height: 200px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    align-items: center;
+    border: 3.5px solid #e3e3e3;
+    justify-content: space-between;
+    /* padding: 0 40px; */
+}
+.statics .staticsTextShow{
+    min-height: 200px;
+    width: 100%;
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 40px; */
+}
+
+.showProgress{
+    color: black;
+    background-color: orange;
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+
+.speechRecognitionGIF{
+    width: 60px;
+    margin: 30px;
+    height: auto;
+}
+
+#kidSpeech{
+    border: 4px solid #e3e3e3;
+    outline: none;
+    margin: 10px 30px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#kidsProgress{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.kidsTopHeader{
+    max-width: 80%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.kidsTopHeader .rightBtnContainer{
+    font-size: 18px;
+
+    background-color: #e6e6e6;
+    padding: 7px 20px;
+    color: #000000;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 3.5px solid #d8d8d8;
+}
+
+.kidsTopHeader .rightBtnContainer i{
+    margin-right: 5px;
+}

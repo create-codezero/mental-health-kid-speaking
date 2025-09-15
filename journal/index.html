@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+
+    <div class="mainContainer">
+        <div class="topHeader">
+            <div class="journalTitle">
+                <a href="../">
+                    <div class="goBackBtn">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                </a>
+                <p>Journals</p>
+            </div>
+            <div class="addNewContainer">
+                <div class="btnAddNewJournal" onclick="addJournalForm()">
+                    <p>+</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="addNewJournal none" id="addJournal">
+            <div class="inputFields" id="inputFields">
+                
+            </div>
+            <div class="bottomAction">
+                <div class="optionContainer">
+                    <i class="fa-solid fa-microphone" onclick="voiceToText()" id="recordAudio"></i>
+                    <i class="fa-solid fa-image" onclick="triggerImageUpload('journalImage')"></i>
+
+                    <div class="themeColorContainer">
+                        <div class="color" id="themeColor" data-bgcolor="pink"></div>
+                        <div class="color" id="themeColor" data-bgcolor="green"></div>
+                        <div class="color" id="themeColor" data-bgcolor="white"></div>
+                        <div class="color" id="themeColor" data-bgcolor="yellow"></div>
+                    </div>
+                </div>
+                <div class="btnSubmit" onclick="addJournal()" id="submitJournal">
+                    <p>Submit</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="addNewJournal none" id="editJournal">
+            <div class="inputFields">
+                <input type="text" style="display: none;" id="editJournalReference" value="">
+                <input type="text" placeholder="title" id="editJournalTitle">
+                <textarea name="journalContent" id="editJournalContent" placeholder="Journal Content" cols="5"></textarea>
+            </div>
+            <div class="bottomAction">
+                <div class="btnSubmit" onclick="updateJournal()" id="submitJournal">
+                    <p>Update</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="oldJournalContainer" id="oldJournalContainer">
+            <!-- Old Journals will be added Below -->
+            
+        </div>
+    </div>
+    
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // CKEDITOR.replace( 'journalContent' );
+    </script>
+</body>
+</html>

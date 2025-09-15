@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Face Expression Detection API Scripts -->
+  <script src="./aiConfig.js"></script>
+  <script defer src="./face-api.min.js"></script>
+  <script defer src="./node_modules/js-md5/build/md5.min.js"></script>
+  <script defer src="./script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.14.1/firebase-performance-standalone-compat.es2017.min.js"></script>
+
+  <title>PSIT Project</title>
+</head>
+<body>
+  <nav>
+    <img src="./assests/logo.png" alt="logo">
+
+    <div>
+      <a href="./therapy/" class="nav-button">Therapy</a>
+      <a href="./journal/" class="nav-button">Journal</a>
+      <a href="./kidsSpeaking/" class="nav-button">Kids Speaking</a>
+    </div>
+  </nav>
+  <div class="main">
+      <div class="chat-section same-box">
+          <div class="topChatHeader">
+            <div class="toggleContainer">
+                <i class="fa-solid fa-comments"></i>
+                <label class="toggle-button">
+                    <input type="checkbox" id="toggle-btn" onchange="toggleChanged()"/>
+                    <span class="toggle-label"></span>
+                </label>
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+          </div>
+          <div class="section-main" id="mainChatArea">
+          </div>
+          <div class="chat-area" id="textInputArea">
+            <input type="text" name="chat-msg-bot" id="userQuery">
+            <i class="fa-solid fa-microphone" onclick="voiceToText()" id="recordAudio"></i>
+            <i class="fa-solid fa-paper-plane" id="getResponse"></i>
+          </div>
+
+          <div class="voiceChatUI none" id="voiceChatUI">
+            <div class="aiChatSection">
+                <p class="aiSoundIcon" id="aiSoundIcon">🔈</p>
+                <i class="fa-regular fa-circle-stop" onclick="stopReading()"></i>
+            </div>
+            <div class="divider"></div>
+            <div class="userChatSection">
+                <p class="userQueryText" id="voiceChatQuery">Hello, Here is what you spoken</p>
+                <div class="voiceChatUserActionContainer">
+                    <div class="userVoiceChatIconContainer noMain">
+                      <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="userVoiceChatIconContainer">
+                        <i class="fa-solid fa-microphone voiceChatIcon" onclick="voiceToText()" id="voiceChatRecordAudio"></i>
+                    </div>
+                    <div class="userVoiceChatIconContainer noMain">
+                      <i class="fa-solid fa-paper-plane" id="getResponse" onclick="getResponseFromAI()"></i>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="ai-space same-box">
+          <div class="face-ai">
+              <div class="face-cam" id="faceCam">
+                <video id="video" autoplay muted></video>
+              </div>
+              <img id="capturedImage" style="display: none;"/>
+              <div class="face-text" id="captureEmotion">
+                <p>Get Suggestions</p>
+              </div>
+          </div>
+          <!-- <div class="audio-files">
+              <div class="audios">
+                  <audio src="./assests/choo lo.mp3" controls></audio>
+              </div>
+              <div class="more-audios">
+                  <p type="button">Get More Relaxing Musics</p>
+              </div>
+          </div> -->
+      </div>
+  </div>
+
+  <!-- <div class="loadingContainer" id="loadingContainer">
+    <h1></h1>
+  </div> -->
+
+
+  <!-- FIREBASE DATABASE -->
+  <script type="module" src="./firebase.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Assistant</title>
+</head>
+<body>
+  <h1>Mental Health Assistant</h1>
+  <p>Ask me questions about how to help someone with emotional difficulties.</p>
+  <input type="text" id="user-input" placeholder="Enter your question">
+  <button id="ask-button">Ask</button>
+  <div id="response"></div>
+
+  <script>
+    const apiKey = "AIzaSyCINQ1TZQmSHFuiHAza6vTScdz_0OrT7XQ"; // Replace with your actual API key
+    const model = null; // This will be populated later
+
+    async function initializeModel() {
+      const { GoogleGenerativeAI } = await import("@google/generative-ai");
+      const genAI = new GoogleGenerativeAI(apiKey);
+      model = genAI.getGenerativeModel({
+        model: "gemini-1.5-pro",
+        systemInstruction: "... (same system instruction as before) ..."
+      });
+    }
+
+    const askButton = document.getElementById("ask-button");
+    const userInput = document.getElementById("user-input");
+    const responseDiv = document.getElementById("response");
+
+    askButton.addEventListener("click", async () => {
+      const userQuestion = userInput.value;
+      if (!userQuestion) return;
+
+      if (!model) {
+        await initializeModel();
+      }
+
+      const generationConfig = {
+        temperature: 2,
+        topP: 0.95,
+        topK: 64,
+        maxOutputTokens: 8192,
+        responseMimeType: "text/plain",
+      };
+
+      const chatSession = model.startChat({
+        generationConfig,
+        history: [
+          { role: "user", parts: [{ text: userQuestion }] },
+          // ... rest of the history from the original code ...
+        ],
+      });
+
+      const result = await chatSession.sendMessage("");
+      responseDiv.innerText = result.response.text();
+      userInput.value = ""; // Clear input field after response
+    });
+  </script>
+</body>
+</html>

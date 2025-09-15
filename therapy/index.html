@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+    <div class="mainContainerTherapy" id="therapySelectionTab">
+        <div class="mainContainer">
+            <div class="topHeader">
+                <div class="therapyTitle">
+                    <a href="../">
+                        <div class="goBackBtn">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                    </a>
+                    <p>Therapies</p>
+                </div>
+                <div class="addNewContainer">
+                    <div class="btnAddNewTherapy" onclick="addTherapyForm()">
+                        <p>+</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="addNewTherapy none" id="addTherapy">
+                <div class="inputFields">
+                    <input type="text" placeholder="title" id="therapyTitle" data-bgcolor="default">
+                    <input type="text" placeholder="therapyTheme" id="therapyTheme" value="default" style="display: none;">
+                    <div class="therapyContent">
+                        
+                        <textarea name="therapyContent" id="therapyContent" placeholder="Therapy Content" cols="5" data-bgcolor="default"></textarea>
+                        
+                        <form action="" method="post" method="post" enctype="multipart/form-data"></form>
+                        <input type="file" name="therapyImage" style="display:none;" id="therapyImage" onchange="displayImage(this)">
+                        </form>
+    
+                        <img src="" alt="therapyImage" class="therapyImageInInput none" id="therapyImageInInput">
+                    </div>
+                </div>
+                <div class="bottomAction">
+                    <div class="optionContainer">
+                        <i class="fa-solid fa-microphone" onclick="voiceToText()" id="recordAudio"></i>
+                        <!-- <i class="fa-solid fa-image" onclick="triggerImageUpload('therapyImage')"></i>
+    
+                        <div class="themeColorContainer">
+                            <div class="color" id="themeColor" data-bgcolor="pink"></div>
+                            <div class="color" id="themeColor" data-bgcolor="green"></div>
+                            <div class="color" id="themeColor" data-bgcolor="white"></div>
+                            <div class="color" id="themeColor" data-bgcolor="yellow"></div>
+                        </div> -->
+                    </div>
+                    <div class="btnSubmit" onclick="addTherapy()" id="submitTherapy">
+                        <p>Generate</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="addNewTherapy none" id="editTherapy">
+                <div class="inputFields">
+                    <input type="text" style="display: none;" id="editTherapyReference" value="">
+                    <input type="text" placeholder="title" id="editTherapyTitle">
+                    <textarea name="therapyContent" id="editTherapyContent" placeholder="Therapy Content" cols="5"></textarea>
+                </div>
+                <div class="bottomAction">
+                    <div class="btnSubmit" onclick="updateTherapy()" id="submitTherapy">
+                        <p>Update</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="oldTherapyContainer" id="oldTherapyContainer">
+                
+            </div>
+        </div>
+    </div>
+    <div class="mainContainerTherapy none" id="therapyContentContainer">
+        <div class="topHeader" id="therapyContentHeader">
+            
+        </div>
+
+        <div class="dailyTherapyContent">
+            <div class="mainContent">
+                <pre style="width:100%; text-align: left; margin:0; white-space: pre-wrap; white-space: -moz-pre-wrap;" id="loadContentHere"></pre>
+            </div>
+
+            <div class="bottonRattingBar" id="ratingContainer">
+                
+                
+            </div>
+
+            <div>
+                <p style="font-size: 30px; padding: 10px; cursor: pointer;" id="readOutIcon" onclick="readOutTherapy()">🔈</p>
+            </div>
+
+        </div>
+
+    </div>
+    
+
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

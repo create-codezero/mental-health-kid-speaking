@@ -438,7 +438,7 @@ function toggleChanged(){
 
 function getVideos(){
   let title = youtubeVideosSearchQuery;
-  let fetchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${title}&type=video&key=AIzaSyBtd9TOx5bzYKMwfBKom6XyNsDWNUO0kac`;
+  let fetchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${title}&type=video&key=your_api_key`;
 
   fetch(fetchURL).then(res => res.json()).then(data => {
     // console.log(data);

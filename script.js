@@ -135,7 +135,7 @@ captureEmotion.addEventListener('click',() => {
 
     sendUserEmotionState(bestExpression)
 
-    const AIURL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyCmFDAW8GfdjQqXjXls_Q_s1yTGgid8hfc';
+    const AIURL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=your_api_key';
     
     
     fetch(AIURL, {
